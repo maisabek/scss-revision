@@ -1,0 +1,55 @@
+@import "colors";
+$i:6;
+@for $i from 1 through 6{
+
+}
+@for $i from 1 to 5{
+
+}
+$list:facebook twitter yahoo;
+@each $i in $list {
+    
+}
+$map:(h:red,j:green);
+@each $i in $map {
+    .icon-#{$i}{
+
+    }
+}
+@each $x,$y in (facebook,twitter),(yahoo,instgram) {
+    
+}
+@if $direction == rtl{
+
+}
+@else if $direction==ltr{
+
+}
+@else{
+
+}
+%all{
+  font-size: test(5);
+}
+@function test($i){
+  @return $i;
+}
+@mixin boxshadow($x,$y,$z,$color){
+   -webkit-box-shadow:$x $y $z $color;
+   -moz-box-shadow:$x $y $z $color;
+   -o-box-shadow:$x $y $z $color;
+   box-shadow:$x $y $z $color;
+}
+.aa{
+    @include boxshadow(3px,4px ,9px ,red )
+}
+.aaa{
+    @extend %all;
+}
+@mixin prefixer($property,$value,$prefixes:()){
+    @each $prefixe in $prefixes {
+        #{'-'+$prefixe+'-'+$property}:$value;
+    }
+    #{$prefixe}:$value;
+}
+
